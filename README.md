@@ -7,7 +7,7 @@
 
 ## Usage
 
-[Click here](https://hbarry89.github.io/Code-Quiz/) to navigate to the live link of this repository.
+<a href="https://hbarry89.github.io/Code-Quiz/" target="_blank">Click here</a> to navigate to the live link of this repository.
 
 - Screenshots
 
