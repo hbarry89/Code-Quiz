@@ -1,0 +1,17 @@
+* {
+    text-align: center;
+}
+
+h1,
+.vhs,
+.tm {
+    color: purple
+}
+
+.vhs {
+    float: left;
+}
+
+.tm {
+    float: right;
+}
