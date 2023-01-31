@@ -1,5 +1,10 @@
 * {
     text-align: center;
+    margin: 5px;
+}
+
+h1 {
+    font-size: x-large;
 }
 
 h1,
@@ -14,4 +19,8 @@ h1,
 
 .tm {
     float: right;
+}
+
+.quiz-intro {
+    padding: 200px;
 }
