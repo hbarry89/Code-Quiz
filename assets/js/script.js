@@ -1,3 +1,4 @@
+// -------------------Pseudo Code provided by TA in class-------------------
 //click button to start
     //event listener
     //a timer will start
@@ -10,7 +11,7 @@
         //Increment the score++
     //FOR loop to loop through the questions array
 //When timer hits 0 OR no more questions in array
-7
+
 
 //startQuiz() function changes content
     //hide the start screen
@@ -26,9 +27,10 @@
 //questionClick() function that checks choice user clicked
     //first we check that the event.target matches an answer choice
     //check event.target.value matches the questions[currentIndex].answer
+// ---------------------------End of Pseudo Code---------------------------
 
-// Questions in an Array of Objects Variable
-var questions = [
+
+var questions = [ // Questions in an Array of Objects Variable
     {
         question: "What kind of brackets does a fuction have?",
         choices: ["curly", "round", "square", "angular"],
@@ -69,17 +71,20 @@ introPage.style.display = "block"
 questionsPage.style.display = "none"
 endPage.style.display = "none"
 
-// Question 1 and Choices Variables
-var question1 = document.querySelector("#question1");
+// Question and Choices Variables
+var questionDisplay = document.querySelector("#question-display");
 
 var choice1 = document.querySelector("#btn1");
 var choice2 = document.querySelector("#btn2");
 var choice3 = document.querySelector("#btn3");
 var choice4 = document.querySelector("#btn4");
 
+
 startQuizBtn.addEventListener("click", function() {
     setTime();
     startQuiz();
+
+    //Show only Question Page when Start Quiz button is clicked
     introPage.style.display = "none"
     questionsPage.style.display = "block"
     endPage.style.display = "none"
@@ -87,7 +92,7 @@ startQuizBtn.addEventListener("click", function() {
   });
 
 function setTime() {
-// Sets interval in variable
+    // Sets interval in variable
     var timerInterval = setInterval(function() {
       secondsLeft--;
       timerEl.textContent = secondsLeft;
@@ -104,8 +109,6 @@ function setTime() {
 }
 
 function startQuiz() {
-
-
     //hide the start screen
     //unhide the questions section
     //start the timer
@@ -115,7 +118,7 @@ function startQuiz() {
 }
 
 function getQuestion() {
-    question1.textContent = "What kind of brackets does a fuction have?";
+    questionDisplay.textContent = "What kind of brackets does a fuction have?";
 
     choice1.textContent = "curly";
     choice2.textContent = "round";
