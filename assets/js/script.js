@@ -57,6 +57,7 @@ var questions = [ // Questions in an Array of Objects Variable
 var secondsLeft = 10;
 var timerEl = document.querySelector(".timer");
 var secondRemaining = "";
+var timer;
 
 // Start Button Variable
 var startQuizBtn = document.querySelector("#strtq");
@@ -136,8 +137,23 @@ function questionClick() {
     //check event.target.value matches the questions[currentIndex].answer
 }
 
-//document.querySelector("#buttons-container").addEventListener("click", function (e)) {
-//    if (e.target.matches("button")) {
-//        console.log(e.target.textcontent);
+// document.querySelector("#buttons-container").addEventListener("click", function (e)) {
+//     if (e.target.matches("button")) {
+//         console.log(e.target.textcontent);
 //    }
-//}
+
+// }
+
+// function endQuiz() {
+//     clearInterval.(timer);
+//     introPage.style.display = "none"
+//     questionsPage.style.display = "none"
+//     endPage.style.display = "block"
+//     //show end screen
+//     //hide questions
+//     //DOM
+
+
+// }
+//  //if statement no more questions or time call end quiz function
+//  // if statement if hidden show
