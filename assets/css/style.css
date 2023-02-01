@@ -26,7 +26,7 @@ h1 {
     float: left;
 }
 
-a {
+.hslink {
     text-decoration: none;
     color: black;
 }
@@ -45,4 +45,10 @@ a {
 
 .highs {
     padding: 100px;
+}
+
+.clearhs {
+    text-decoration: none;
+    color: white;
+    background-color: indianred;
 }
