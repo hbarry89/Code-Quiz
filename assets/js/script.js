@@ -10,10 +10,7 @@
         //Increment the score++
     //FOR loop to loop through the questions array
 //When timer hits 0 OR no more questions in array
-    //THEN clear interval
-    //THEN allow user to input initials
-    //THEN link to highscores page(two separate HTML pages, index.html and hiscores.html)
-    //Save data to local storage(setItem, getItem)
+7
 
 //startQuiz() function changes content
     //hide the start screen
@@ -30,7 +27,7 @@
     //first we check that the event.target matches an answer choice
     //check event.target.value matches the questions[currentIndex].answer
 
-// Questions in an Array of Objects
+// Questions in an Array of Objects Variable
 var questions = [
     {
         question: "What kind of brackets does a fuction have?",
@@ -54,15 +51,24 @@ var questions = [
     }
 ]
 
+// Timer Variables
 var secondsLeft = 10;
-var timerEl = document.querySelector(".timer")
-var secondRemaining = ""
+var timerEl = document.querySelector(".timer");
+var secondRemaining = "";
 
 // Declared Variables
 var startQuizBtn = document.querySelector("#strtq");
-setTime()
+
+// Variables for Intro Page | Questions Page | End Page
+var introPage = document.querySelector("intro-card");
+var questionsPage = document.querySelector("questions-card");
+var endPage = document.querySelector("end-card");
+
+
 startQuizBtn.addEventListener("click", function() {
     setTime();
+    startQuiz();
+
   });
 
 function setTime() {
@@ -79,16 +85,30 @@ function setTime() {
       }
   
     }, 1000);
+
 }
 
 function startQuiz() {
 
+    introPage.style.display = "none"
+    questionsPage.style.display = "block"
+    end.style.display = "none"
+    //hide the start screen
+    //unhide the questions section
+    //start the timer
+    //show the starting time
+    //call getQuestion()
+    getQuestion();
 }
 
 function getQuestion() {
-
+    //change content of the page
+    //getElementbyId, change textContent
+    //loop over choices create a button for each choice
+    //after creating all the elements we appendChild
 }
 
 function questionClick() {
-
+    //first we check that the event.target matches an answer choice
+    //check event.target.value matches the questions[currentIndex].answer
 }

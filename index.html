@@ -9,10 +9,11 @@
     <title>Code Quiz</title>
 </head>
 <body>
-    <section><p class="vhs">View High Scores</p></section>
+    <section><p class="vhs"><a href="./highscores.html">View High Scores</a></p></section>
     <section><p class="tm">Time: <span class="timer">0</span></p></section>
     <section>
-        <article class="quiz-intro">
+
+        <article id= "intro-card" class="quiz-intro">
         <h1>Coding Quiz Challenge</h1>
         <p><pre>
             Try to answer the following code-related questions within the time
@@ -21,6 +22,28 @@
         </pre></p>
         <button id = "strtq">Start Quiz</button>
         </article>
+
+        <article id="questions-card">
+            <h2>Question</h2>
+            <div id="buttons-container">
+            <button id="btn1" value=""></button> <br>
+            <button id="btn2" value=""></button> <br>
+            <button id="btn3" value=""></button> <br>
+            <button id="btn4" value=""></button>
+            </div>
+        </article>
+
+        <article id="end-card">
+            <h2>All Done!</h2>
+            <p>Your final score is <span id="score"></span>.</p>
+            <form>
+                <label for="initials">Enter initials:</label>
+                <input type="text" id="initials" name="fname" value=""><br>
+                <button id="sbmtbtn">Submit</button>
+            </form>
+
+        </article>
+
     </section>
     
     <script src="./assets/js/script.js"></script>
