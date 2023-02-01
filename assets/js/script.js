@@ -56,7 +56,7 @@ var secondsLeft = 10;
 var timerEl = document.querySelector(".timer");
 var secondRemaining = "";
 
-// Declared Variables
+// Start Button Variable
 var startQuizBtn = document.querySelector("#strtq");
 
 // Variables for Intro Page | Questions Page | End Page
@@ -64,9 +64,18 @@ var introPage = document.querySelector("#intro-card");
 var questionsPage = document.querySelector("#questions-card");
 var endPage = document.querySelector("#end-card");
 
+// Show only Intro Page when the webpage loads
 introPage.style.display = "block"
 questionsPage.style.display = "none"
 endPage.style.display = "none"
+
+// Question 1 and Choices Variables
+var question1 = document.querySelector("#question1");
+
+var choice1 = document.querySelector("#btn1");
+var choice2 = document.querySelector("#btn2");
+var choice3 = document.querySelector("#btn3");
+var choice4 = document.querySelector("#btn4");
 
 startQuizBtn.addEventListener("click", function() {
     setTime();
@@ -106,6 +115,12 @@ function startQuiz() {
 }
 
 function getQuestion() {
+    question1.textContent = "What kind of brackets does a fuction have?";
+
+    choice1.textContent = "curly";
+    choice2.textContent = "round";
+    choice3.textContent = "square";
+    choice4.textContent = "angular";
     //change content of the page
     //getElementbyId, change textContent
     //loop over choices create a button for each choice
