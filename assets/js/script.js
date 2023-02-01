@@ -64,10 +64,16 @@ var introPage = document.querySelector("#intro-card");
 var questionsPage = document.querySelector("#questions-card");
 var endPage = document.querySelector("#end-card");
 
+introPage.style.display = "block"
+questionsPage.style.display = "none"
+endPage.style.display = "none"
 
 startQuizBtn.addEventListener("click", function() {
     setTime();
     startQuiz();
+    introPage.style.display = "none"
+    questionsPage.style.display = "block"
+    endPage.style.display = "none"
 
   });
 
@@ -90,9 +96,7 @@ function setTime() {
 
 function startQuiz() {
 
-    introPage.style.display = "none"
-    questionsPage.style.display = "block"
-    endPage.style.display = "none"
+
     //hide the start screen
     //unhide the questions section
     //start the timer
