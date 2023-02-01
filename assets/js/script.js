@@ -60,9 +60,9 @@ var secondRemaining = "";
 var startQuizBtn = document.querySelector("#strtq");
 
 // Variables for Intro Page | Questions Page | End Page
-var introPage = document.querySelector("intro-card");
-var questionsPage = document.querySelector("questions-card");
-var endPage = document.querySelector("end-card");
+var introPage = document.querySelector("#intro-card");
+var questionsPage = document.querySelector("#questions-card");
+var endPage = document.querySelector("#end-card");
 
 
 startQuizBtn.addEventListener("click", function() {
@@ -92,7 +92,7 @@ function startQuiz() {
 
     introPage.style.display = "none"
     questionsPage.style.display = "block"
-    end.style.display = "none"
+    endPage.style.display = "none"
     //hide the start screen
     //unhide the questions section
     //start the timer
