@@ -30,6 +30,7 @@
     //first we check that the event.target matches an answer choice
     //check event.target.value matches the questions[currentIndex].answer
 
+// Questions in an Array of Objects
 var questions = [
     {
         question: "What kind of brackets does a fuction have?",
@@ -53,3 +54,41 @@ var questions = [
     }
 ]
 
+var secondsLeft = 10;
+var timerEl = document.querySelector(".timer")
+var secondRemaining = ""
+
+// Declared Variables
+var startQuizBtn = document.querySelector("#strtq");
+setTime()
+startQuizBtn.addEventListener("click", function() {
+    setTime();
+  });
+
+function setTime() {
+// Sets interval in variable
+    var timerInterval = setInterval(function() {
+      secondsLeft--;
+      timerEl.textContent = secondsLeft;
+        clearInterval(secondRemaining)
+      if(secondsLeft === 0) {
+        // Stops execution of action at set interval
+        clearInterval(timerInterval);
+        // Calls function to create and append image
+        sendMessage();
+      }
+  
+    }, 1000);
+}
+
+function startQuiz() {
+
+}
+
+function getQuestion() {
+
+}
+
+function questionClick() {
+
+}
