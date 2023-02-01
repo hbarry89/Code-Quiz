@@ -109,6 +109,7 @@ function setTime() {
 }
 
 function startQuiz() {
+    
     //hide the start screen
     //unhide the questions section
     //start the timer
@@ -134,3 +135,9 @@ function questionClick() {
     //first we check that the event.target matches an answer choice
     //check event.target.value matches the questions[currentIndex].answer
 }
+
+//document.querySelector("#buttons-container").addEventListener("click", function (e)) {
+//    if (e.target.matches("button")) {
+//        console.log(e.target.textcontent);
+//    }
+//}
