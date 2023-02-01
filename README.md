@@ -18,6 +18,11 @@
 ### Resources
 - Bootcamp Materials
 - W3 Schools
+- Pseudo Code provided by TA in class
+- Worked Tutor and study groups.
+
+### Assets
+- Reset Code: Bootcamp Materials Unit 2 Activity 11.
 
 ### Applications Used
 - VS Code
