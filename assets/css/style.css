@@ -35,6 +35,8 @@ a {
     float: right;
 }
 
-.quiz-intro {
+#intro-card,
+#questions-card,
+#end-card {
     padding: 100px;
 }
