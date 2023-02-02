@@ -33,23 +33,23 @@
 var questions = [ // Questions in an Array of Objects Variable
     {
         question: "What kind of brackets does a function have?",
-        choices: ["curly", "round", "square", "angular"],
-        answer: "round",
+        choices: ["1. curly", "2. round", "3. square", "4. angular"],
+        answer: "2. round",
     },
     {
         question: "How many equal signs do we need to declare a variable?",
-        choices: ["one", "two", "three", "none"],
-        answer: "one",
+        choices: ["1. one", "2. two", "3 .three", "4. none"],
+        answer: "1. one",
     },
     {
         question: "What can we use to loop through an array?",
-        choices: ["if", "var", "for", "sum"],
-        answer: "for"
+        choices: ["1. if", "2. var", "3. for", "4. sum"],
+        answer: "3. for"
     },
     {
         question: "How do we make a button clickable?",
-        choices: ["click here", "push button", "event whisperer", "event listener"],
-        answer: "event listener"
+        choices: ["1. click here", "2. push button", "3. event whisperer", "4. event listener"],
+        answer: "4. event listener"
     }
 ]
 
@@ -84,10 +84,7 @@ var choice4 = document.querySelector("#btn4");
 // New Variable
 var questionContainer = document.querySelector("#buttons-container");
 
-
-
-
-
+//
 startQuizBtn.addEventListener("click", function() {
     setTime();
     startQuiz();
@@ -99,34 +96,28 @@ startQuizBtn.addEventListener("click", function() {
 
   });
 
-  
+//This function starts time omce start quiz button is clicked
 function setTime() {
     // Sets interval in variable
     timerInterval = setInterval(function() {
       secondsLeft--;
-      timerEl.textContent = secondsLeft;
+      timerEl.textContent = secondsLeft; //This shows how many seconds left on the webpage
         clearInterval(secondRemaining)
       if(secondsLeft === 0) {
         // Stops execution of action at set interval
         clearInterval(timerInterval);
-        // Calls function to create and append image
+        // Calls function
         sendMessage();
       }
   
     }, 1000);
 
 }
-
+//This function starts the quiz and calls the getQuestion function
 function startQuiz() {
-    
-    //hide the start screen
-    //unhide the questions section
-    //start the timer
-    //show the starting time
-    //call getQuestion()
     getQuestion();
 }
-
+//This is the getQuestion function that displays questions along with their choices going through each index
 function getQuestion() {
     questionDisplay.textContent = questions[currentIndex].question;
 
@@ -134,43 +125,34 @@ function getQuestion() {
     choice2.textContent = questions[currentIndex].choices[1];
     choice3.textContent = questions[currentIndex].choices[2];
     choice4.textContent = questions[currentIndex].choices[3];
-    //change content of the page
-    //getElementbyId, change textContent
-    //loop over choices create a button for each choice
-    //after creating all the elements we appendChild
-}
 
+}
+//These are evenListeners for each choice button
 choice1.addEventListener("click", questionClick);
 choice2.addEventListener("click", questionClick);
 choice3.addEventListener("click", questionClick);
 choice4.addEventListener("click", questionClick);
 
+//This function  is when a choice is clicked and it has conditionals shown in the if statement
 function questionClick(e) {
-    console.log (e.target);
+    //If the clicked choice is the correct answer, time is increased by 5 seonds and move to next question
     if (e.target.textContent == questions[currentIndex].answer ) {
         secondsLeft+=5;
         currentIndex++;
-
+         //Quiz keeps going for the length of the questions array of objects which is 4 questions, end quiz once it runs out of questions
         if (currentIndex>=questions.length) {
             endQuiz();
             return;
         }
-
+        //Another question is disblayed
         getQuestion();
-    }else{
+    }else{ //If the clicked choice is the wrong answer, time is decreased by 5 seonds
         secondsLeft-=5;
     }
-    //first we check that the event.target matches an answer choice
-    //check event.target.value matches the questions[currentIndex].answer
+
 }
-//questionContainer.addEventListener("click", questionContainer);
-// document.querySelector("#buttons-container").addEventListener("click", function (e)) {
-//     if (e.target.matches("button")) {
-//         console.log(e.target.textcontent);
-//    }
 
-// }
-
+//This is the endQuiz function that will clear the interval, it also hides questions page and displays the "All done!" page
 function endQuiz() {
     clearInterval(timerInterval);
     //introPage.style.display = "none"
@@ -178,32 +160,19 @@ function endQuiz() {
     endPage.style.display = "block"
     document.querySelector("#score").textContent=secondsLeft
 }
-
+//This eventlistern button saves the scores
 document.querySelector("#sbmtbtn").addEventListener("click", saveScore);
 
+//This is a function to save scors used in event listener above
 function saveScore(e) {
-    e.preventDefault();
-    var userInitials = document.querySelector("initials").value;
-    var test = {
+    e.preventDefault(); //prevent the default of refreshing the page when user click button
+    var userInitials = document.querySelector("initials").value; //Variable for storing user's initials
+    var storedInfo = { //Object to store user initials and score
         user: userInitials,
         score: secondsLeft
     }
-    localStorage.setItem('testKey', JSON.stringify(test))
-    //get the value from the input user initials
-    //get the seconds left (score)
-    //store in local storage
-    //display main page
+    //This is to add user initials to local storage
+    storedInfo.push(scoreObject) 
+    localStorage.setItem('testKey', JSON.stringify(storedInfo))
+
 }
-
-//     clearInterval.(timerInterval);
-//     introPage.style.display = "none"
-//     questionsPage.style.display = "none"
-//     endPage.style.display = "block"
-//     //show end screen
-//     //hide questions
-//     //DOM
-
-
-// }
-//  //if statement no more questions or time call end quiz function
-//  // if statement if hidden show
