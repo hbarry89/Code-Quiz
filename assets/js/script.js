@@ -84,7 +84,7 @@ var choice4 = document.querySelector("#btn4");
 // New Variable
 var questionContainer = document.querySelector("#buttons-container");
 
-//
+//This is the start quiz button that is calling the set time and start quiz functions
 startQuizBtn.addEventListener("click", function() {
     setTime();
     startQuiz();
@@ -106,17 +106,16 @@ function setTime() {
       if(secondsLeft === 0) {
         // Stops execution of action at set interval
         clearInterval(timerInterval);
-        // Calls function
-        sendMessage();
       }
   
     }, 1000);
-
 }
+
 //This function starts the quiz and calls the getQuestion function
 function startQuiz() {
     getQuestion();
 }
+
 //This is the getQuestion function that displays questions along with their choices going through each index
 function getQuestion() {
     questionDisplay.textContent = questions[currentIndex].question;
@@ -125,8 +124,8 @@ function getQuestion() {
     choice2.textContent = questions[currentIndex].choices[1];
     choice3.textContent = questions[currentIndex].choices[2];
     choice4.textContent = questions[currentIndex].choices[3];
-
 }
+
 //These are evenListeners for each choice button
 choice1.addEventListener("click", questionClick);
 choice2.addEventListener("click", questionClick);
@@ -149,7 +148,6 @@ function questionClick(e) {
     }else{ //If the clicked choice is the wrong answer, time is decreased by 5 seonds
         secondsLeft-=5;
     }
-
 }
 
 //This is the endQuiz function that will clear the interval, it also hides questions page and displays the "All done!" page
@@ -160,6 +158,7 @@ function endQuiz() {
     endPage.style.display = "block"
     document.querySelector("#score").textContent=secondsLeft
 }
+
 //This eventlistern button saves the scores
 document.querySelector("#sbmtbtn").addEventListener("click", saveScore);
 
@@ -171,8 +170,8 @@ function saveScore(e) {
         user: userInitials,
         score: secondsLeft
     }
+
     //This is to add user initials to local storage
     storedInfo.push(scoreObject) 
     localStorage.setItem('testKey', JSON.stringify(storedInfo))
-
 }
