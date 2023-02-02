@@ -32,7 +32,7 @@
 
 var questions = [ // Questions in an Array of Objects Variable
     {
-        question: "What kind of brackets does a fuction have?",
+        question: "What kind of brackets does a function have?",
         choices: ["curly", "round", "square", "angular"],
         answer: "round",
     },
@@ -54,10 +54,11 @@ var questions = [ // Questions in an Array of Objects Variable
 ]
 
 // Timer Variables
-var secondsLeft = 10;
+var secondsLeft = 50;
 var timerEl = document.querySelector(".timer");
 var secondRemaining = "";
-var timer;
+var currentIndex = 0;
+var timerInterval;
 
 // Start Button Variable
 var startQuizBtn = document.querySelector("#strtq");
@@ -80,6 +81,12 @@ var choice2 = document.querySelector("#btn2");
 var choice3 = document.querySelector("#btn3");
 var choice4 = document.querySelector("#btn4");
 
+// New Variable
+var questionContainer = document.querySelector("#buttons-container");
+
+
+
+
 
 startQuizBtn.addEventListener("click", function() {
     setTime();
@@ -92,9 +99,10 @@ startQuizBtn.addEventListener("click", function() {
 
   });
 
+  
 function setTime() {
     // Sets interval in variable
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
       secondsLeft--;
       timerEl.textContent = secondsLeft;
         clearInterval(secondRemaining)
@@ -120,23 +128,42 @@ function startQuiz() {
 }
 
 function getQuestion() {
-    questionDisplay.textContent = "What kind of brackets does a fuction have?";
+    questionDisplay.textContent = questions[currentIndex].question;
 
-    choice1.textContent = "curly";
-    choice2.textContent = "round";
-    choice3.textContent = "square";
-    choice4.textContent = "angular";
+    choice1.textContent = questions[currentIndex].choices[0];
+    choice2.textContent = questions[currentIndex].choices[1];
+    choice3.textContent = questions[currentIndex].choices[2];
+    choice4.textContent = questions[currentIndex].choices[3];
     //change content of the page
     //getElementbyId, change textContent
     //loop over choices create a button for each choice
     //after creating all the elements we appendChild
 }
 
-function questionClick() {
+choice1.addEventListener("click", questionClick);
+choice2.addEventListener("click", questionClick);
+choice3.addEventListener("click", questionClick);
+choice4.addEventListener("click", questionClick);
+
+function questionClick(e) {
+    console.log (e.target);
+    if (e.target.textContent == questions[currentIndex].answer ) {
+        secondsLeft+=5;
+        currentIndex++;
+
+        if (currentIndex>=questions.length) {
+            endQuiz();
+            return;
+        }
+
+        getQuestion();
+    }else{
+        secondsLeft-=5;
+    }
     //first we check that the event.target matches an answer choice
     //check event.target.value matches the questions[currentIndex].answer
 }
-
+//questionContainer.addEventListener("click", questionContainer);
 // document.querySelector("#buttons-container").addEventListener("click", function (e)) {
 //     if (e.target.matches("button")) {
 //         console.log(e.target.textcontent);
@@ -144,8 +171,31 @@ function questionClick() {
 
 // }
 
-// function endQuiz() {
-//     clearInterval.(timer);
+function endQuiz() {
+    clearInterval(timerInterval);
+    //introPage.style.display = "none"
+    questionsPage.style.display = "none"
+    endPage.style.display = "block"
+    document.querySelector("#score").textContent=secondsLeft
+}
+
+document.querySelector("#sbmtbtn").addEventListener("click", saveScore);
+
+function saveScore(e) {
+    e.preventDefault();
+    var userInitials = document.querySelector("initials").value;
+    var test = {
+        user: userInitials,
+        score: secondsLeft
+    }
+    localStorage.setItem('testKey', JSON.stringify(test))
+    //get the value from the input user initials
+    //get the seconds left (score)
+    //store in local storage
+    //display main page
+}
+
+//     clearInterval.(timerInterval);
 //     introPage.style.display = "none"
 //     questionsPage.style.display = "none"
 //     endPage.style.display = "block"
